@@ -1,0 +1,62 @@
+[
+  {
+    "questionText": "What is the `MRR` of UI Sources?",
+    "Name": "UI Sources",
+    "link": "https://www.uisources.com/",
+    "lastVerified": "Aug, 2021",
+    "intro": "UI sources is a UI library for mobile designs and patterns. They currently charge a yearly and a quarterly fees.",
+    "launchDate": "July, 2018",
+    "trivia": "Although launched in 2018, Abhinav (the founder of UIsources, only added the monetisation plan in 2020. He left his job right around the $100 MRR mark.",
+    "answerOptions": [
+      { "answerText": "$1k/mo", "isCorrect": false },
+      { "answerText": "$500/mo", "isCorrect": false },
+      { "answerText": "$1.8k/mo", "isCorrect": true },
+      { "answerText": "$3k/mo", "isCorrect": false }
+    ]
+  },
+  {
+    "questionText": "How much does 'Ghost.org' earn in a month?",
+    "Name": "Ghost.org",
+    "link": "https://ghost.org/",
+    "lastVerified": "Aug, 2021",
+    "intro": "Ghost is a popular open source blogging platform that can be used to create websites, blogs, and other content related site.",
+    "launchDate": "April, 2013",
+    "trivia": "Ghost was started from a kickstarter campaign",
+    "answerOptions": [
+      { "answerText": "$100k/mo", "isCorrect": false },
+      { "answerText": "$500k/mo", "isCorrect": false },
+      { "answerText": "$400k/mo", "isCorrect": false },
+      { "answerText": "$300k/mo", "isCorrect": true }
+    ]
+  },
+  {
+    "questionText": "What is the `MRR` of UI Sources?",
+    "Name": "UI Sources",
+    "link": "https://www.uisources.com/",
+    "lastVerified": "Aug, 2021",
+    "intro": "UI sources is a UI library for mobile designs and patterns. They currently charge a yearly and a quarterly fees.",
+    "launchDate": "July, 2018",
+    "trivia": "Although launched in 2018, Abhinav (the founder of UIsources, only added the monetisation plan in 2020. He left his job right around the $100 MRR mark.",
+    "answerOptions": [
+      { "answerText": "$1k/mo", "isCorrect": false },
+      { "answerText": "$500/mo", "isCorrect": false },
+      { "answerText": "$1.8k/mo", "isCorrect": true },
+      { "answerText": "$3k/mo", "isCorrect": false }
+    ]
+  },
+  {
+    "questionText": "What is the `MRR` of UI Sources?",
+    "Name": "UI Sources",
+    "link": "https://www.uisources.com/",
+    "lastVerified": "Aug, 2021",
+    "intro": "UI sources is a UI library for mobile designs and patterns. They currently charge a yearly and a quarterly fees.",
+    "launchDate": "July, 2018",
+    "trivia": "Although launched in 2018, Abhinav (the founder of UIsources, only added the monetisation plan in 2020. He left his job right around the $100 MRR mark.",
+    "answerOptions": [
+      { "answerText": "$1k/mo", "isCorrect": false },
+      { "answerText": "$500/mo", "isCorrect": false },
+      { "answerText": "$1.8k/mo", "isCorrect": true },
+      { "answerText": "$3k/mo", "isCorrect": false }
+    ]
+  }
+]
