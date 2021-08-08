@@ -33,7 +33,7 @@ const Quiz = ({ data }) => {
   const correctTerm = shuffleArray(data.statementsJson.right)[0]
   const wrongTerm = shuffleArray(data.statementsJson.wrong)[0]
 
-  if (newQuiz === true && currentQuestion === 0) {
+  if (newQuiz === true) {
     shuffleArray(questionList)
   }
 
