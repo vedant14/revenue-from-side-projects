@@ -26,8 +26,6 @@ const Quiz = ({ data }) => {
   const [correct, setCorrect] = useState(false)
   const [nextQuestionText, setNextQuestionText] = useState("Next Question")
   const [newQuiz, setNewQuiz] = useState(true)
-  console.log(newQuiz)
-
   const totalQuestions = 5
   const questionList = data.allAirtable.nodes
   const correctTerm = shuffleArray(data.statementsJson.right)[0]
