@@ -56,7 +56,9 @@ export function SubmitComponent({
           }}
         />
       </div>
-      <button onClick={handleNextQuestion}>{nextQuestionText}</button>
+      <button onClick={handleNextQuestion}>
+        <p>{nextQuestionText}</p>
+      </button>
     </Wrapper>
   )
 }
