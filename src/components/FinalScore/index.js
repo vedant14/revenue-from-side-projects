@@ -8,12 +8,14 @@ export function FinalScore({
   setCurrentQuestion,
   setShowScore,
   setNextQuestionText,
+  setNewQuiz,
 }) {
   const handleScoreReset = () => {
     setCurrentQuestion(0)
     setShowScore(false)
     setScore(0)
     setNextQuestionText("Next Question")
+    setNewQuiz(true)
   }
 
   return (

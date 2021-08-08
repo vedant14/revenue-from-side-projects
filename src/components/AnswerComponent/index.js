@@ -8,6 +8,7 @@ export function AnswerComponent({
   setScore,
   setCorrect,
   setSubmit,
+  setNewQuiz,
   score,
 }) {
   const handleAnswerOptionClick = answer => {
@@ -17,6 +18,7 @@ export function AnswerComponent({
     } else {
       setCorrect(false)
     }
+    setNewQuiz(false)
     setSubmit(true)
   }
 

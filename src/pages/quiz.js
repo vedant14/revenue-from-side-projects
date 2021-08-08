@@ -25,13 +25,15 @@ const Quiz = ({ data }) => {
   const [submit, setSubmit] = useState(false)
   const [correct, setCorrect] = useState(false)
   const [nextQuestionText, setNextQuestionText] = useState("Next Question")
+  const [newQuiz, setNewQuiz] = useState(true)
+  console.log(newQuiz)
 
   const totalQuestions = 5
   const questionList = data.allAirtable.nodes
   const correctTerm = shuffleArray(data.statementsJson.right)[0]
   const wrongTerm = shuffleArray(data.statementsJson.wrong)[0]
 
-  if (currentQuestion === 0) {
+  if (newQuiz === true && currentQuestion === 0) {
     shuffleArray(questionList)
   }
 
@@ -45,6 +47,7 @@ const Quiz = ({ data }) => {
           setCurrentQuestion={setCurrentQuestion}
           setShowScore={setShowScore}
           setNextQuestionText={setNextQuestionText}
+          setNewQuiz={setNewQuiz}
         />
       ) : (
         <div>
@@ -61,6 +64,7 @@ const Quiz = ({ data }) => {
               currentQuestion={currentQuestion}
               questionList={questionList}
               score={score}
+              setNewQuiz={setNewQuiz}
             />
           ) : (
             <SubmitComponent
