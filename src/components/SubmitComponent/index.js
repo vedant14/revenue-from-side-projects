@@ -48,13 +48,7 @@ export function SubmitComponent({
       )}
 
       <div id="trivia">
-        <span
-          dangerouslySetInnerHTML={{
-            __html:
-              questionList[currentQuestion].data.Trivia.childMarkdownRemark
-                .html,
-          }}
-        />
+        <p>{questionList[currentQuestion].data.Trivia}</p>
       </div>
       <button onClick={handleNextQuestion}>
         <p>{nextQuestionText}</p>

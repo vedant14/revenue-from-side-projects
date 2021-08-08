@@ -35,6 +35,8 @@ const Quiz = ({ data }) => {
     shuffleArray(questionList)
   }
 
+  console.log("newQuiz", newQuiz)
+
   return (
     <Layout>
       <SEO title="Guess the revenue quiz" />
@@ -94,32 +96,16 @@ export const query = graphql`
           Answer2
           Answer3
           Answer4
-          Intro {
-            childMarkdownRemark {
-              html
-            }
-          }
+          Intro
           LaunchDate(formatString: "MMM, Y")
           Name
           ProductLink
           RevenueCheckLink
           RightAnswer
-          QuestionText {
-            childMarkdownRemark {
-              html
-            }
-          }
+          QuestionText
           LastVerifiedOn(formatString: "MMM, YY")
-          LayManDefinition {
-            childMarkdownRemark {
-              html
-            }
-          }
-          Trivia {
-            childMarkdownRemark {
-              html
-            }
-          }
+          LayManDefinition
+          Trivia
         }
       }
     }

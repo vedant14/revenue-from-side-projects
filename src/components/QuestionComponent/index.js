@@ -8,13 +8,7 @@ export function QuestionComponent({ currentQuestion, questionList }) {
       <h1>Guess the revenue</h1>
       <div id="question">
         <p>Q{currentQuestion + 1}. </p>
-        <p
-          dangerouslySetInnerHTML={{
-            __html:
-              questionList[currentQuestion].data.QuestionText
-                .childMarkdownRemark.html,
-          }}
-        />
+        <p>{questionList[currentQuestion].data.QuestionText}</p>
       </div>
 
       <a
@@ -26,23 +20,11 @@ export function QuestionComponent({ currentQuestion, questionList }) {
       </a>
       <div id="intro">
         <img src={Bulb} alt="idea" />
-        <p
-          id="intro"
-          dangerouslySetInnerHTML={{
-            __html:
-              questionList[currentQuestion].data.Intro.childMarkdownRemark.html,
-          }}
-        />
+        <p id="intro">{questionList[currentQuestion].data.Intro}</p>
       </div>
       <div id="layman">
         <p>In other words {questionList[currentQuestion].data.Name} is:</p>
-        <p
-          dangerouslySetInnerHTML={{
-            __html:
-              questionList[currentQuestion].data.LayManDefinition
-                .childMarkdownRemark.html,
-          }}
-        />
+        <p>{questionList[currentQuestion].data.LayManDefinition}</p>
       </div>
     </Wrapper>
   )

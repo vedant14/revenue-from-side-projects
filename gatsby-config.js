@@ -48,12 +48,6 @@ module.exports = {
           {
             baseId: `appae3GrJjGaNMqs4`,
             tableName: `Data`,
-            mapping: {
-              QuestionText: `text/markdown`,
-              Intro: `text/markdown`,
-              Trivia: `text/markdown`,
-              LayManDefinition: `text/markdown`,
-            },
           },
         ],
       },
