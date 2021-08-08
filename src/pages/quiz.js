@@ -26,7 +26,7 @@ const Quiz = ({ data }) => {
   const [correct, setCorrect] = useState(false)
   const [nextQuestionText, setNextQuestionText] = useState("Next Question")
 
-  const totalQuestions = 2
+  const totalQuestions = 5
   const questionList = data.allAirtable.nodes
   const correctTerm = shuffleArray(data.statementsJson.right)[0]
   const wrongTerm = shuffleArray(data.statementsJson.wrong)[0]
@@ -85,7 +85,7 @@ const Quiz = ({ data }) => {
 
 export const query = graphql`
   {
-    allAirtable {
+    allAirtable(filter: { data: { Status: { eq: "Publish" } } }) {
       nodes {
         data {
           Answer1
@@ -102,8 +102,6 @@ export const query = graphql`
           ProductLink
           RevenueCheckLink
           RightAnswer
-          Status
-          id
           QuestionText {
             childMarkdownRemark {
               html

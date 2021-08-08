@@ -1,5 +1,7 @@
 import React from "react"
 import { Wrapper } from "./styles"
+import CheckIcon from "../../images/check.png"
+import CrossIcon from "../../images/cross.png"
 
 export function SubmitComponent({
   currentQuestion,
@@ -30,8 +32,22 @@ export function SubmitComponent({
   }
   return (
     <Wrapper>
-      <div>
-        {correct ? <p>{correctTerm}</p> : <p>{wrongTerm}</p>}
+      {correct ? (
+        <div id="correctTerm">
+          <img src={CheckIcon} alt="right" />
+          <p>{correctTerm}</p>
+        </div>
+      ) : (
+        <div id="wrongTerm">
+          <img src={CrossIcon} alt="wrong" />
+          <p>
+            {wrongTerm}. The correct answer is{" "}
+            {questionList[currentQuestion].data.RightAnswer}
+          </p>
+        </div>
+      )}
+
+      <div id="trivia">
         <span
           dangerouslySetInnerHTML={{
             __html:
@@ -39,10 +55,8 @@ export function SubmitComponent({
                 .html,
           }}
         />
-        <div>
-          <button onClick={handleNextQuestion}>{nextQuestionText}</button>
-        </div>
       </div>
+      <button onClick={handleNextQuestion}>{nextQuestionText}</button>
     </Wrapper>
   )
 }

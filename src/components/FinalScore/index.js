@@ -18,10 +18,12 @@ export function FinalScore({
 
   return (
     <Wrapper>
-      <div>
-        Your scores is {score}
-        <button onClick={handleScoreReset}> Play Again </button>
-      </div>
+      <h1>Hope you enjoyed the quiz!</h1>
+      <h2>Your scores is {score}</h2>
+      <p>Do you want to play again?</p>
+      <button onClick={handleScoreReset}>
+        <p>Play Again</p>
+      </button>
     </Wrapper>
   )
 }

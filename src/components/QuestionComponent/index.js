@@ -34,13 +34,16 @@ export function QuestionComponent({ currentQuestion, questionList }) {
           }}
         />
       </div>
-      <span
-        dangerouslySetInnerHTML={{
-          __html:
-            questionList[currentQuestion].data.LayManDefinition
-              .childMarkdownRemark.html,
-        }}
-      />
+      <div id="layman">
+        <p>In other words {questionList[currentQuestion].data.Name} is:</p>
+        <p
+          dangerouslySetInnerHTML={{
+            __html:
+              questionList[currentQuestion].data.LayManDefinition
+                .childMarkdownRemark.html,
+          }}
+        />
+      </div>
     </Wrapper>
   )
 }

@@ -2,13 +2,15 @@ import styled from "styled-components"
 import { colors } from "../../styles/GlobalStyles"
 
 export const Wrapper = styled.div`
-	> div#question {
+	> div {
 		display: flex;
-		margin: 0px;
 		align-items: center;
 		> p:last-child {
-			margin-left: 5px;
+			margin-left: 10px;
 		}
+	}
+	> div#question {
+		margin: 0px;
 	}
 	> div#intro {
 		background: #f7f6f3;
@@ -21,5 +23,8 @@ export const Wrapper = styled.div`
 		> p {
 			margin: 0px 0px 0px 10px;
 		}
+	}
+	> a {
+		text-decoration: underline;
 	}
 `
