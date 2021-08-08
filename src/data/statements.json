@@ -1,14 +1,14 @@
 [
 	{
 		"right": [
-			"Genius. How did you guess that!",
-			"You rode your luck that time!",
-			"How did you get that!"
+			"Genius. How did you guess that :O",
+			"You rode your luck that time :P",
+			"How did you get that :)"
 		],
 		"wrong": [
-			"Better luck in the next question!",
-			"You can do better",
-			"I thought that was right too!"
+			"Better luck in the next question :|",
+			"You can do better :)",
+			"I thought that was right too :/"
 		]
 	}
 ]

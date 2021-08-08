@@ -41,7 +41,7 @@ export function SubmitComponent({
         <div id="wrongTerm">
           <img src={CrossIcon} alt="wrong" />
           <p>
-            {wrongTerm}. The correct answer is{" "}
+            {wrongTerm} The correct answer is{" "}
             {questionList[currentQuestion].data.RightAnswer}
           </p>
         </div>
