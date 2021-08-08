@@ -1,9 +1,13 @@
 import React, { useState } from "react"
 import { graphql } from "gatsby"
-
-import Layout from "../components/layout"
-import Seo from "../components/seo"
-
+import {
+  Layout,
+  SEO,
+  QuestionComponent,
+  AnswerComponent,
+  SubmitComponent,
+  FinalScore,
+} from "../components"
 const Quiz = ({ data }) => {
   function shuffleArray(array) {
     let i = array.length - 1
@@ -22,8 +26,8 @@ const Quiz = ({ data }) => {
   const [correct, setCorrect] = useState(false)
   const [nextQuestionText, setNextQuestionText] = useState("Next Question")
 
-  const totalQuestions = 5
-  const questionList = data.allQuestionsJson.nodes
+  const totalQuestions = 2
+  const questionList = data.allAirtable.nodes
   const correctTerm = shuffleArray(data.statementsJson.right)[0]
   const wrongTerm = shuffleArray(data.statementsJson.wrong)[0]
 
@@ -31,86 +35,48 @@ const Quiz = ({ data }) => {
     shuffleArray(questionList)
   }
 
-  const handleAnswerOptionClick = isCorrect => {
-    if (isCorrect) {
-      setScore(score + 1)
-      setCorrect(true)
-    } else {
-      setCorrect(false)
-    }
-    setSubmit(true)
-  }
-
-  const handleNextQuestion = () => {
-    setSubmit(false)
-    const nextQuestion = currentQuestion + 1
-
-    if (nextQuestion === totalQuestions - 1) {
-      setNextQuestionText("Submit Quiz")
-    }
-
-    if (nextQuestion < totalQuestions) {
-      setCurrentQuestion(nextQuestion)
-    } else {
-      setShowScore(true)
-    }
-  }
-  const handleScoreReset = () => {
-    setCurrentQuestion(0)
-    setShowScore(false)
-    setScore(0)
-    setNextQuestionText("Next Question")
-  }
-
   return (
     <Layout>
-      <Seo title="Guess the revenue quiz" />
+      <SEO title="Guess the revenue quiz" />
       {showScore ? (
-        <div>
-          Your score is {score}
-          <button onClick={handleScoreReset}> Play Again </button>
-        </div>
+        <FinalScore
+          setScore={setScore}
+          score={score}
+          setCurrentQuestion={setCurrentQuestion}
+          setShowScore={setShowScore}
+          setNextQuestionText={setNextQuestionText}
+        />
       ) : (
         <div>
-          <h1>Guess the revenue</h1>
-          <div>
-            <p>
-              Q{currentQuestion + 1}.{" "}
-              {questionList[currentQuestion].questionText}
-            </p>
+          <QuestionComponent
+            currentQuestion={currentQuestion}
+            questionList={questionList}
+          />
 
-            <a
-              href={questionList[currentQuestion].link}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Visit
-            </a>
-            <p>{questionList[currentQuestion].intro}</p>
-            {submit === false ? (
-              <div>
-                {questionList[currentQuestion].answerOptions.map(answer => (
-                  <div>
-                    <button
-                      onClick={() => handleAnswerOptionClick(answer.isCorrect)}
-                    >
-                      {answer.answerText}
-                    </button>
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <div>
-                {correct ? <p>{correctTerm}</p> : <p>{wrongTerm}</p>}
-                <p>{questionList[currentQuestion].trivia}</p>
-                <div>
-                  <button onClick={handleNextQuestion}>
-                    {nextQuestionText}
-                  </button>
-                </div>
-              </div>
-            )}
-          </div>
+          {submit === false ? (
+            <AnswerComponent
+              setCorrect={setCorrect}
+              setScore={setScore}
+              setSubmit={setSubmit}
+              currentQuestion={currentQuestion}
+              questionList={questionList}
+              score={score}
+            />
+          ) : (
+            <SubmitComponent
+              currentQuestion={currentQuestion}
+              questionList={questionList}
+              correct={correct}
+              correctTerm={correctTerm}
+              wrongTerm={wrongTerm}
+              setShowScore={setShowScore}
+              totalQuestions={totalQuestions}
+              setSubmit={setSubmit}
+              setNextQuestionText={setNextQuestionText}
+              setCurrentQuestion={setCurrentQuestion}
+              nextQuestionText={nextQuestionText}
+            />
+          )}
         </div>
       )}
     </Layout>
@@ -119,21 +85,47 @@ const Quiz = ({ data }) => {
 
 export const query = graphql`
   {
+    allAirtable {
+      nodes {
+        data {
+          Answer1
+          Answer2
+          Answer3
+          Answer4
+          Intro {
+            childMarkdownRemark {
+              html
+            }
+          }
+          LaunchDate(formatString: "MMM, Y")
+          Name
+          ProductLink
+          RevenueCheckLink
+          RightAnswer
+          Status
+          id
+          QuestionText {
+            childMarkdownRemark {
+              html
+            }
+          }
+          LastVerifiedOn(formatString: "MMM, YY")
+          LayManDefinition {
+            childMarkdownRemark {
+              html
+            }
+          }
+          Trivia {
+            childMarkdownRemark {
+              html
+            }
+          }
+        }
+      }
+    }
     statementsJson {
       right
       wrong
-    }
-    allQuestionsJson {
-      nodes {
-        questionText
-        link
-        intro
-        trivia
-        answerOptions {
-          answerText
-          isCorrect
-        }
-      }
     }
   }
 `

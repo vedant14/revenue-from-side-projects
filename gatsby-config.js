@@ -1,3 +1,6 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 module.exports = {
   siteMetadata: {
     title: `Guess the revenue`,
@@ -37,6 +40,31 @@ module.exports = {
         path: `./src/data/`,
       },
     },
+    {
+      resolve: `gatsby-source-airtable`,
+      options: {
+        apiKey: process.env.AIRTABLE_API_KEY, // may instead specify via env, see below
+        tables: [
+          {
+            baseId: `appae3GrJjGaNMqs4`,
+            tableName: `Data`,
+            mapping: {
+              QuestionText: `text/markdown`,
+              Intro: `text/markdown`,
+              Trivia: `text/markdown`,
+              LayManDefinition: `text/markdown`,
+            },
+          },
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+    },
+    {
+      resolve: `gatsby-plugin-styled-components`,
+    },
+
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
